@@ -1,27 +1,23 @@
 #!/usr/bin/env php
 <?php
 
-use App\Sorter;
 use App\SortAsc;
 use App\SortDesc;
+use App\Sorter;
 use App\SortShuffle;
+use App\SortTypeFactory;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-
 $data = [5,8,11,32,54,3,6,7,88,999];
 
-$sorterAsc = new Sorter(new SortAsc);
-$resultAsc = $sorterAsc -> sort($data);
+$factory = new SortTypeFactory();
 
-$sorterDesc = new Sorter(new SortDesc);
-$resultDesc = $sorterDesc -> sort($data);
+$sorter = new Sorter($data, $factory->createSortAsc());
+var_dump('ASC', $sorter->sort());
 
-$sortShuffle = new Sorter(new SortShuffle);
-$resultShuffle = $sortShuffle -> sort($data);
+$sorter->setSortType($factory->createSortDesc());
+var_dump('DESC', $sorter->sort());
 
-
-
-print_r($resultAsc);
-print_r($resultDesc);
-print_r($resultShuffle);
+$sorter->setSortType($factory->createSortShuffle());
+var_dump('SHUFFLE', $sorter->sort());

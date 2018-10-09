@@ -5,15 +5,23 @@ namespace App;
 
 class Sorter 
 {
-    private $sorter;
+    private $data;
+    private $sortType;
     
-    public function __construct(SortTypeInterface $sorter) 
+    public function __construct(array $data, SortTypeInterface $sortType) 
     {
-        $this -> sorter = $sorter;
+        $this->data = $data;
+        $this->sortType = $sortType;
     }
     
-    public function sort(array $data)
+    public function setSortType(SortTypeInterface $sortType)
     {
-        return $this -> sorter -> sortType($data);
+        $this->sortType = $sortType;
+    }
+
+
+    public function sort()
+    {
+        return $this->sortType->sortType($this->data);
     }
 }
