@@ -1,0 +1,17 @@
+{
+    "name": "i/sort",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Yuriy Filonenko",
+            "email": "mail@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
