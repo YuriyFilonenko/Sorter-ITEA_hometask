@@ -1,11 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use App\SortAsc;
-use App\SortDesc;
-use App\Sorter;
-use App\SortShuffle;
-use App\SortTypeFactory;
+use App\{Sorter, SortTypeFactory};
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
